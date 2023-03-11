@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./index.css">
+	<title>Form Validation Project</title>
+</head>
+<body>
+	<p class="message hidden"></p>
+	<form class="center form">
+		<input class="input-form" type="text" placeholder="Name" required>
+		<input class="input-form" type="email" placeholder="Email Address" required>
+		<input class="input-form" type="tel" placeholder="Phone Number" required>
+		<select>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+		</select>
+		<input class="input-form" type="password" placeholder="Password" required>
+		<button type="submit" class="submit-btn">Submit</button>
+	</form>
+
+	<script>
+		const button = document.querySelector('.form');
+		const inputs = document.querySelectorAll(".input-form");
+		const message = document.querySelector('.message');
+		button.addEventListener('submit', (e) => {
+			e.preventDefault();
+			inputs.forEach((input) => {
+				if (input.value){
+					message.style.display = "flex";
+				}else{
+					message.style.display = "none";
+				}
+				message.innerHTML = "Form submission successful";
+				input.value = "";
+			})
+			
+		})
+	</script>
+</body>
+</html>
